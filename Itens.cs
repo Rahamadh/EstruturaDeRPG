@@ -18,13 +18,13 @@ public class item
 }
 public class Arma
 {
-    public string? Nome {get;private set;}
-    public int DadoDano {get; private set;}
+    public string? Nome {get; set;}
+    public int DadoDano {get; set;}
 
-    public int qntDado {get;private set;}
+    public int qntDado {get;set;}
     public tipoArma ID;
 
-    public string Atributo {get; private set;}
+    public string Atributo {get;set;}
     public Arma(string nome, int dado,int qntdado, tipoArma tipo, string atributo)
      {
         Nome = nome;
@@ -37,10 +37,23 @@ public class Arma
      }
 
 }
+ public static class ArmaPadrão
+{
+    public static Arma _punho = new Arma 
+    (
+        "Punho",
+         4,
+         1,
+        tipoArma.Punho,
+        "Corpo-A-Corpo"
+    );
+}
 public enum tipoArma
 {
     MachadoGrande,
     EspadaLonga,
+
+    Punho,
 
     ArcoLongo
 };

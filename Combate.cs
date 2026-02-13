@@ -18,12 +18,7 @@ public class AcoesDeCombate
     }
     public TipoAcerto Golpear (Personagem Atacante, Personagem alvo)
     {
-        if(Atacante._armaEquipada == null)
-        {
-            _console.Log("Sem arma equipada");
-            return TipoAcerto.acertoCritico;
-            
-        }
+       
         int d20 = Dado.RolarDado(1,20);
         int bonus = Atacante._armaEquipada.Atributo == "Corpo-A-Corpo"?
         Atacante.BonusCorpoACorpo() : Atacante.BonusADistancia();
@@ -33,7 +28,8 @@ public class AcoesDeCombate
 
         if(d20 == 1)
         {
-            _console.Log("Falha critica");
+            return TipoAcerto.ErroCritico;
+            
         }
 
         if( d20 == 20)
@@ -56,8 +52,8 @@ public class AcoesDeCombate
     public int CausarDano (Personagem Atacante, Personagem alvo)
     {
         int DadoArma = Dado.RolarDado(Atacante._armaEquipada.qntDado, Atacante._armaEquipada.DadoDano);
-        int BonusDano = Atacante._armaEquipada.Atributo == "Corpo-A-Corpo" ? Atacante.pegarmModificador(TipoAtributo.Forca) 
-        : Atacante.pegarmModificador(TipoAtributo.Destreza);
+        int BonusDano = Atacante._armaEquipada.Atributo == "Corpo-A-Corpo" ? Atacante._atributo.LerAtributo(TipoAtributo.Forca) 
+        : Atacante._atributo.LerAtributo(TipoAtributo.Destreza);
         int danoTotal = DadoArma + BonusDano;
        return  danoTotal;
    
