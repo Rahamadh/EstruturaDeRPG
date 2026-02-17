@@ -40,10 +40,11 @@ Pré-requisitos: Ter o [SDK do .NET 9.0](https://dotnet.microsoft.com/download/d
 
 1. **Clone o repositório:**
    ```bash
-   git clone [https://github.com/Rahamadh/nome-do-repositorio.git](https://github.com/Rahamadh/nome-do-repositorio.git)
+   git clone https://github.com/Rahamadh/EstruturaDeRPG.git
 
    cd EstruturaDeRPG
 
    dotnet run
+
 
 
